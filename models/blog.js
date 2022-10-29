@@ -10,8 +10,8 @@ const blogSchema = new mongoose.Schema({
 // Make a Model from the Schema
 // the Blog model allows us to use the CRUD Create Read Update Destroy in the app
 
-const Log = mongoose.model('Blog', logSchema)
+const Blog = mongoose.model('Blog', blogSchema)
 // making a fruits collection
 
 // Export the Model for Use in the App
-module.exports = Log
+module.exports = Blog
