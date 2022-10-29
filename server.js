@@ -29,13 +29,7 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use('/blogs', require('./controllers/routeController'))
 app.use('/user', require('./controllers/authController'))
-
 /* End Middleware */
-
-// NEW
-app.get('blog/new', (req, res) => {
-  res.render('blog/New')
-})
 
 // Listen on Ports
 app.listen(3000, () => {
