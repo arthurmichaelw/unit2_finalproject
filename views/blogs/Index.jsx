@@ -7,24 +7,26 @@ class Index extends React.Component {
     const { blogs } = this.props
     return (
       <Default title='Blog Index Page'>
-        <ul>
-          {
+        <div className='background'>
+          <ul>
+            {
                         blogs.map((blog) => {
                           const { name, entry, _id } = blog
                           return (
                             <li key={_id}>
-                              <a href={`/blogs/${-id}`}>
+                              <a href={`/blogs/${_id}`}>
                                 {name}
                               </a> {entry}
                               <br />
-                              <form method='POST' action={`blog/${_id}?_method=DELETE`}>
+                              <form method='POST' action={`blogs/${_id}?_method=DELETE`}>
                                 <input type='submit' value={`Delete ${name}`} />
                               </form>
                             </li>
                           )
                         })
                     }
-        </ul>
+          </ul>
+        </div>
       </Default>
     )
   }

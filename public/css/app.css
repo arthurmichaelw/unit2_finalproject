@@ -1,8 +1,24 @@
 body {
-    background-color: white;
-    color: black;
+    background: #ffffff url("https://i.imgur.com/acn49wi.jpg") no-repeat;
+    background-size: cover;
+    color: magenta;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.background {
+    border: solid 1px black;
+    background-color: black;
+    width: 63.98vw;
+    opacity: .75;
+    margin: 0%;
+    margin-left: 21vw;
+}
+
+.nav {
+    margin-top: 23.78vh;
+}
+
+/* will need a position fixed for nav and title, but position relative for everything bellow it */
 
 h1 {
     color: red;
@@ -31,4 +47,5 @@ input[type=text] {
 input[type=submit] {
     color: red;
 }
+
 

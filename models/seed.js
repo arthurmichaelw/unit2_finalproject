@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const db = require('./db')
-const Blog = require('./blog')
+const Blog = require('/blogs')
 
 const starterBlogPosts = [
   {

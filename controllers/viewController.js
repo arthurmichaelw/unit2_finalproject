@@ -17,8 +17,8 @@ const viewController = {
     res.redirect(RESOURCE_PATH)
   },
   redirectShow (req, res, next) {
-    const blogId = req.params.id || res.locals.data.fruit._id
-    res.redirect(`${RESOURCE_PATH}/${blogID}`)
+    const blogId = req.params.id || res.locals.data.blog._id
+    res.redirect(`${RESOURCE_PATH}/${blogId}`)
   }
 }
 

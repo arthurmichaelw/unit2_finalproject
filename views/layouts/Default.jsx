@@ -10,13 +10,13 @@ class Default extends React.Component {
           <title>{title}</title>
         </head>
         <body>
-          <nav>
+          <nav className='background nav'>
             <a href='/blogs'>Home</a>
             <a href='/blogs/new'>New Post</a>
             {blog ? <a href={`/blogs/${blog._id}/edit`}> {blog.name} Edit Page </a> : ''}
             {blog ? <a href={`/blogs/${blog._id}`}>{blog.name} Show Page</a> : ''}
           </nav>
-          <h1>
+          <h1 className='background'>
             {title}
           </h1>
           {this.props.children}
