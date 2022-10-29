@@ -11,10 +11,10 @@ class Default extends React.Component {
         </head>
         <body>
           <nav>
-            <a href='/logs'>Home</a>
-            <a href='/logs/new'>New Post</a>
-            {blog ? <a href={`/logs/${blog._id}/edit`}> {log.name} Edit Page </a> : ''}
-            {blog ? <a href={`/logs/${blog._id}`}>{blog.name} Show Page</a> : ''}
+            <a href='/blogs'>Home</a>
+            <a href='/blogs/new'>New Post</a>
+            {blog ? <a href={`/blogs/${blog._id}/edit`}> {blog.name} Edit Page </a> : ''}
+            {blog ? <a href={`/blogs/${blog._id}`}>{blog.name} Show Page</a> : ''}
           </nav>
           <h1>
             {title}

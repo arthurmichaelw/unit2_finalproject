@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const methodOverride = require('method-override')
 const cors = require('cors')
-const db = require('.models/db')
+const db = require('./models/db')
 
 // Create Express App
 const app = express()
@@ -28,7 +28,6 @@ db.once('open', () => {
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use('/blogs', require('./controllers/routeController'))
-app.use('/user', require('./controllers/authController'))
 /* End Middleware */
 
 // Listen on Ports
