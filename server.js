@@ -39,6 +39,16 @@ app.get('blog/new', (req, res) => {
 // UPDATE
 
 // CREATE
+app.post('/blog', (req, res) => {
+    Blog.create(req.body, (err, createdBlog) => {
+        if (err) {
+            console.log(err)
+            res.status(400).send(err)
+        } else {
+            res.redirect(`/blogs/${createdBlog._id}`)
+        }
+    })
+})
 
 // EDIT
 
