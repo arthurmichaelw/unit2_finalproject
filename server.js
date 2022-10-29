@@ -1,29 +1,34 @@
-// Require Modules
 require('dotenv').config()
-const fs = require('fs') // this engine requires the fs module like we did Saturday
+// Require Modules
 const express = require('express')
-const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-const Blog = require('./models/blog')
+const cors = require('cors')
+const db = require('.models/db')
 
 // Create Express App
 const app = express()
 
 // Config the App
 /* Start Config */
+app.use(express.urlencoded({ extended: true }))
+app.use((req, res, next) => {
+  res.locals.data = {}
+  next()
+})
+app.use(cors())
 app.engine('jsx', require('jsx-view-engine').createEngine())
-app.set('view engine', 'jsx') // register the jsx view engine
-/* End Config */
-app.use(methodOverride('_method'))
-app.use(express.static('public'))
-app.set('view engine', 'jsx') // register the jsx view engine
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-mongoose.connection.once('open', () => {
+app.set('view engine', 'jsx')
+db.once('open', () => {
   console.log('connected to MongoDB Atlas')
 })
+/* End Config */
 
 // Mount Middleware
 /* Start Middleware */
+app.use(methodOverride('_method'))
+app.use(express.static('public'))
+app.use('/blogs', require('./controllers/routeController'))
+app.use('/user', require('./controllers/authController'))
 
 /* End Middleware */
 
@@ -40,14 +45,14 @@ app.get('blog/new', (req, res) => {
 
 // CREATE
 app.post('/blog', (req, res) => {
-    Blog.create(req.body, (err, createdBlog) => {
-        if (err) {
-            console.log(err)
-            res.status(400).send(err)
-        } else {
-            res.redirect(`/blogs/${createdBlog._id}`)
-        }
-    })
+  Blog.create(req.body, (err, createdBlog) => {
+    if (err) {
+      console.log(err)
+      res.status(400).send(err)
+    } else {
+      res.redirect(`/blogs/${createdBlog._id}`)
+    }
+  })
 })
 
 // EDIT
