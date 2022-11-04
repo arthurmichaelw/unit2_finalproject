@@ -7,7 +7,7 @@ class Index extends React.Component {
     const { blogs } = this.props
     return (
       <Default title='Blog Index Page'>
-        <div className='background'>
+        <div>
           <ul>
             {
                         blogs.map((blog) => {

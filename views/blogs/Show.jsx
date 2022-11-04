@@ -8,7 +8,7 @@ class Show extends React.Component {
     const capName = name[0].toUpperCase() + name.substring(1)
     return (
       <Default title={`${capName} Page`} blog={this.props.blog}>
-        <p className='background'>{capName} {entry}</p>
+        <p>{capName} {entry}</p>
       </Default>
     )
   }
